@@ -1,0 +1,21 @@
+<h1 class="text-3xl font-bold m-5">Crear Solicitud de Construccion</h1>
+
+<div class="">
+  <form [formGroup]="form">
+    <label for="tipos">Tipo de construcción:</label>
+    <select id="tipos" formControlName="constructionType">
+      <option value="">-- Selecciona --</option>
+      @for (type of constructionTypes(); track type.id) {
+      <option [value]="type.type">{{ type.type }}</option>
+      }
+    </select>
+
+    <label for="coordy">Coordenada X:</label>
+    <input id="coordy" placeholder="Ingresa coordenada" type="number" inputmode="decimal" />
+
+    <label for="coordx">Coordenada Y:</label>
+    <input id="coordx" placeholder="Ingresa coordenada" type="number" inputmode="decimal" />
+
+    <button class="btn">Crear</button>
+  </form>
+</div>

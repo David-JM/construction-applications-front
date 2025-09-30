@@ -1,1 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+@import url('./normalize.css') layer (reset);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply mb-2 text-2xl font-extrabold text-[#016A44];
+  }
+
+  h2 {
+    @apply mb-3 text-xl font-extrabold text-[#016A44];
+  }
+
+  h3 {
+    @apply my-3 text-lg font-bold;
+  }
+
+  h4 {
+    @apply my-4 text-base font-bold text-gray-700;
+  }
+
+  p {
+    @apply text-gray-600;
+  }
+
+  ul {
+    @apply list-inside list-disc text-gray-600;
+  }
+
+  .btn {
+    @apply p-[.8rem] rounded-lg text-white mt-5 bg-green-700;
+  }
+
+  input {
+    @apply w-full border rounded-md p-2 border-gray-600 mb-5;
+    @apply valid:border-green-700 valid:text-green-800;
+    @apply focus:border-green-600 focus:outline focus:outline-green-600 focus:text-gray-600;
+  }
+
+  select {
+    @apply w-full p-2 border border-green-700 rounded-lg bg-white mb-5;
+    @apply text-gray-600 focus:ring-green-600 focus:border-green-600;
+  }
+
+  label {
+    @apply ml-1 text-sm font-bold text-gray-700;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+* {
+  font-family: 'Avenir Next LT Pro', Arial, Helvetica, sans-serif;
+}
+

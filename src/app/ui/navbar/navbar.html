@@ -1,0 +1,25 @@
+<nav class="bg-gray-900 text-white px-6 py-3 flex items-center justify-between">
+
+    <div class="text-xl font-bold">{{title()}}</div>
+
+    <div class="hidden md:flex space-x-6">
+        @for (menu of menuOptions(); track menu.id) {
+        <a [routerLink]="menu.link" class="hover:text-gray-300">{{menu.name}}</a>
+        }
+    </div>
+
+    <button (click)="toggleMenu()" class="md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+</nav>
+
+<!-- Menú móvil -->
+@if (menuOpen()) {
+<div class="md:hidden bg-gray-800 text-white px-6 py-4 space-y-2">
+    @for (menu of menuOptions(); track menu.id) {
+    <a routerLink="/" class="block hover:text-gray-300">{{menu.name}}</a>
+    }
+</div>
+}
