@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { TitleCasePipe } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -9,7 +9,7 @@ import { ConstructionMap } from './shared/components/construction-map/constructi
 
 @Component({
   selector: 'app-solicitude',
-  imports: [ReactiveFormsModule, OnlyNumberDirective, TitleCasePipe, ConstructionMap],
+  imports: [CommonModule, ReactiveFormsModule, OnlyNumberDirective, TitleCasePipe, ConstructionMap],
   providers: [SolicitudeSandbox],
   templateUrl: './solicitude.html',
   styleUrl: './solicitude.scss',
@@ -28,4 +28,20 @@ export class Solicitude {
   constructionTypes = toSignal(this._solicitudeSandbox.getConstructionTypes(), {
     initialValue: [],
   });
+
+  onSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+    }
+    console.log('Formulario enviado', this.form.value);
+  }
+
+  get formCtrls() {
+    return this.form.controls;
+  }
+
+  hasError(controlName: string): boolean {
+    const control = this.form.get(controlName);
+    return !!(control && control.invalid && (control.touched || control.dirty));
+  }
 }

@@ -14,6 +14,5 @@ export class ConstructionMap {
   private _solicitudeSandbox: SolicitudeSandbox = inject(SolicitudeSandbox);
 
   constructions = toSignal(this._solicitudeSandbox.getConstructions(), { initialValue: [] });
-
   flatMatrix = computed(() => this.constructions().flat());
 }

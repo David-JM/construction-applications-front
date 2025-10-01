@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment as env } from '../../../environments/environment';
 
 import { HttpService } from '../../core/services/http.service';
-import { environment as env } from '../../../environments/environment';
 import { ConstructionType } from './shared/models/construction-type';
 import { Construction } from './shared/models/construction';
 

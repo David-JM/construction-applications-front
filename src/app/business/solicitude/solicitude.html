@@ -2,22 +2,33 @@
 
 <div class="flex flex-col lg:flex-row gap-8">
   <div class="basis-1/3">
-    <form [formGroup]="form">
-      <label for="tipos">Tipo de construcción:</label>
-      <select id="tipos" formControlName="constructionType">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <label for="tipos" class="label">Tipo de construcción:</label>
+      <select id="tipos" formControlName="constructionType" [ngClass]="{ 'invalid': hasError('constructionType') }">
         <option value="">-- Selecciona --</option>
         @for (type of constructionTypes(); track type.id) {
           <option [value]="type.type">{{ type.type | titlecase }}</option>
         }
       </select>
+      @if (hasError('constructionType')) {
+        <p class="text-red-500 text-sm mt-1">El tipo de construcción es obligatorio</p>
+      }
 
-      <label for="coordy">Coordenada X:</label>
-      <input id="coordy" placeholder="Ingresa coordenada" type="text" appOnlyNumber />
+      <label for="coordx" class="label">Coordenada X:</label>
+      <input id="coordx" formControlName="coordX" placeholder="Ingresa coordenada" type="text" appOnlyNumber
+        [ngClass]="{ 'invalid': hasError('coordX') }" />
+      @if (hasError('coordX')) {
+        <p class="text-red-500 text-sm mt-1">La coordenada X es obligatoria</p>
+      }
 
-      <label for="coordx">Coordenada Y:</label>
-      <input id="coordx" placeholder="Ingresa coordenada" type="text" appOnlyNumber />
+      <label for="coordy" class="label">Coordenada Y:</label>
+      <input id="coordy" formControlName="coordY" placeholder="Ingresa coordenada" type="text" appOnlyNumber
+        [ngClass]="{ 'invalid': hasError('coordY') }" />
+      @if (hasError('coordY')) {
+        <p class="text-red-500 text-sm mt-1">La coordenada Y es obligatoria</p>
+      }
 
-      <button class="btn">Crear</button>
+      <button type="submit" class="btn">Crear</button>
     </form>
   </div>
 

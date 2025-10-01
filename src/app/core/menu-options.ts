@@ -12,7 +12,7 @@ export const menuOptions: Menu[] = [
   },
   {
     id: 2,
-    name: 'Materiales',
+    name: 'Almacen de materiales',
     link: 'materials',
   },
   {
