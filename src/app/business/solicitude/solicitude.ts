@@ -1,11 +1,15 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { SolicitudeSandbox } from './solicitude.sandbox';
 import { toSignal } from '@angular/core/rxjs-interop';
+
+import { OnlyNumberDirective } from '../../core/directives/only-number.directive';
+import { SolicitudeSandbox } from './solicitude.sandbox';
+import { ConstructionMap } from './shared/components/construction-map/construction-map';
 
 @Component({
   selector: 'app-solicitude',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, OnlyNumberDirective, TitleCasePipe, ConstructionMap],
   providers: [SolicitudeSandbox],
   templateUrl: './solicitude.html',
   styleUrl: './solicitude.scss',
@@ -22,15 +26,6 @@ export class Solicitude {
   });
 
   constructionTypes = toSignal(this._solicitudeSandbox.getConstructionTypes(), {
-    initialValue: [
-      {
-        id: 1,
-        type: 'Casa',
-      },
-      {
-        id: 2,
-        type: 'Lago',
-      },
-    ],
+    initialValue: [],
   });
 }

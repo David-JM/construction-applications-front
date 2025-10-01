@@ -12,14 +12,10 @@
   }
 
   h2 {
-    @apply mb-3 text-xl font-extrabold text-[#016A44];
+    @apply mb-3 text-xl font-bold
   }
 
   h3 {
-    @apply my-3 text-lg font-bold;
-  }
-
-  h4 {
     @apply my-4 text-base font-bold text-gray-700;
   }
 
@@ -62,8 +58,3 @@
     scrollbar-width: none; /* Firefox */
   }
 }
-
-* {
-  font-family: 'Avenir Next LT Pro', Arial, Helvetica, sans-serif;
-}
-

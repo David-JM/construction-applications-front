@@ -1,10 +1,8 @@
 <nav class="bg-gray-900 text-white px-6 py-3 flex items-center justify-between">
-
-    <div class="text-xl font-bold">{{title()}}</div>
-
+    <h2>{{title()}}</h2>
     <div class="hidden md:flex space-x-6">
         @for (menu of menuOptions(); track menu.id) {
-        <a [routerLink]="menu.link" class="hover:text-gray-300">{{menu.name}}</a>
+            <a [routerLink]="menu.link" class="hover:text-gray-300">{{menu.name}}</a>
         }
     </div>
 
@@ -17,9 +15,9 @@
 
 <!-- Menú móvil -->
 @if (menuOpen()) {
-<div class="md:hidden bg-gray-800 text-white px-6 py-4 space-y-2">
-    @for (menu of menuOptions(); track menu.id) {
-    <a routerLink="/" class="block hover:text-gray-300">{{menu.name}}</a>
-    }
-</div>
+    <div class="md:hidden bg-gray-800 text-white px-6 py-4 space-y-2">
+        @for (menu of menuOptions(); track menu.id) {
+            <a routerLink="/" class="block hover:text-gray-300">{{menu.name}}</a>
+        }
+    </div>
 }

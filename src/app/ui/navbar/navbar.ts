@@ -1,6 +1,7 @@
 import { Component, input, signal } from '@angular/core';
-import { menuOptions } from '../../core/menu-options';
 import { RouterLink } from '@angular/router';
+
+import { menuOptions } from '../../core/menu-options';
 
 @Component({
   selector: 'app-navbar',

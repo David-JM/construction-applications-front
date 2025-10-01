@@ -1,0 +1,7 @@
+<div class="grid grid-cols-10 gap-1">
+  @for (cell of flatMatrix(); track $index) {
+    <div class="w-7 h-7 lg:w-12 lg:h-12 flex items-center justify-center border border-gray-300 bg-gray-100">
+      <span class="text-xs">{{ cell }}</span>
+    </div>
+  }
+</div>
